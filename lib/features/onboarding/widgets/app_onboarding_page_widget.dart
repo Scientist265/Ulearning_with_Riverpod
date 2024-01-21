@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/widget/text_widget.dart';
 import 'package:ulearning_app/constants/colors.dart';
 import 'package:ulearning_app/constants/sizing.dart';
-import 'package:ulearning_app/pages/onboarding/widgets/round_button.dart';
+import 'package:ulearning_app/features/onboarding/widgets/next_button.dart';
 
 class AppOnboardingPage extends StatelessWidget {
   const AppOnboardingPage(
       {super.key,
       required this.imgPath,
       required this.headerText,
-      required this.description});
+      required this.description,
+      this.index = 0,
+      required this.controller});
   final String imgPath, headerText, description;
+  final int index;
+  final PageController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +37,10 @@ class AppOnboardingPage extends StatelessWidget {
             fontSizing: 16,
           ),
         ),
-        const NextButton()
+        NextButton(
+          index: index,
+          controller: controller,
+        )
       ],
     );
   }

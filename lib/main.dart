@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:ulearning_app/pages/onboarding/onboarding.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/config/routes.dart';
 
 void main() async {
-  runApp(const MyApp());
+  runApp(
+    const ProviderScope(
+      child: UlearningApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class UlearningApp extends StatelessWidget {
+  const UlearningApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      
-      home: Onboarding(),
+    return ScreenUtilInit(
+      designSize: const Size(375, 825),
+      builder: ((context, child) => MaterialApp(
+            debugShowCheckedModeBanner: false,
+            initialRoute: welcome,
+            routes: routes,
+          )),
     );
   }
 }
