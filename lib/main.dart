@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/config/routes.dart';
-import 'package:ulearning_app/common/widget/app_styles.dart';
+import 'package:ulearning_app/common/utils/app_styles.dart';
 
 void main() async {
   runApp(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/constants/colors.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
 
 class ReusableText extends StatelessWidget {
   const ReusableText(
@@ -38,7 +38,7 @@ Widget textUnderline({String text = ""}) {
       style: TextStyle(
         fontWeight: FontWeight.normal,
         fontSize: 12.sp,
-        color: AppColors.primaryText,
+        color: AppColors.primarySecondaryElementText.withOpacity(0.8),
         decoration: TextDecoration.underline,
         decorationColor: AppColors.primaryText,
       ),

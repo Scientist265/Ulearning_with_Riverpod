@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widget/app_button.dart';
 import 'package:ulearning_app/common/widget/app_text_field.dart';
+import 'package:ulearning_app/common/widget/navigator.dart';
 import 'package:ulearning_app/common/widget/text_widget.dart';
 import 'package:ulearning_app/config/routes.dart';
-import 'package:ulearning_app/constants/colors.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
 import 'package:ulearning_app/constants/sizing.dart';
 import 'package:ulearning_app/common/widget/appbar_widget.dart';
 import 'package:ulearning_app/features/auth/sign_in/widgets/third_party_logins.dart';
+import 'package:ulearning_app/features/auth/sign_up/sign_up.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -56,12 +58,13 @@ class SignIn extends StatelessWidget {
                       ),
                       AppSizing.h8,
                       // forgot password
-                      textUnderline(text: "Forgot Password"),
+                      textUnderline(
+                        text: "Forgot Password",
+                      ),
                       AppSizing.h54,
                       AppSizing.h40,
-                      AppButton(
+                      const AppButton(
                         buttonText: "Log in",
-                        onTap: () {},
                       ),
                       AppSizing.h20,
                       AppButton(
@@ -69,9 +72,7 @@ class SignIn extends StatelessWidget {
                             color: AppColors.primaryText, width: 0.5),
                         buttonText: "Register",
                         isLogin: false,
-                        onTap: () {
-                          Navigator.of(context).pushNamed(signUp);
-                        },
+                        onTap: () => pushNamed(context, signUp),
                       )
                     ],
                   ),

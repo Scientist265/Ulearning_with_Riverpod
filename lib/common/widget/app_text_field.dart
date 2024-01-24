@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widget/app_shadow.dart';
 import 'package:ulearning_app/common/widget/image_widget.dart';
-import 'package:ulearning_app/constants/colors.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
 
 class AppTextField extends StatelessWidget {
   const AppTextField(
@@ -11,11 +11,13 @@ class AppTextField extends StatelessWidget {
       required this.hintText,
       this.keyboardType,
       this.onChanged,
-      this.obscureText = false});
+      this.obscureText = false,
+      this.controller});
   final String iconName, hintText;
   final TextInputType? keyboardType;
   final Function(String)? onChanged;
   final bool obscureText;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,6 +38,7 @@ class AppTextField extends StatelessWidget {
             child: TextField(
               keyboardType: keyboardType,
               enabled: true,
+              controller: controller,
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: const TextStyle(

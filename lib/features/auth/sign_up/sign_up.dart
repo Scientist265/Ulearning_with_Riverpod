@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/widget/app_button.dart';
 import 'package:ulearning_app/common/widget/app_text_field.dart';
 import 'package:ulearning_app/common/widget/appbar_widget.dart';
 import 'package:ulearning_app/common/widget/text_widget.dart';
 import 'package:ulearning_app/constants/sizing.dart';
+import 'package:ulearning_app/features/auth/sign_up/providers/register_provider.dart';
+import 'package:ulearning_app/features/auth/sign_up/sign_up_controller.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends ConsumerWidget {
   const SignUp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final registerProvider = ref.watch(registerNotifierProvider);
+    SignUpController register = SignUpController(ref: ref);
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -29,34 +34,49 @@ class SignUp extends StatelessWidget {
                   ),
                   AppSizing.h40,
                   const ReusableText(text: "Username"),
-                  const AppTextField(
+                  AppTextField(
+                      onChanged: (value) => ref
+                          .read(registerNotifierProvider.notifier)
+                          .onUserNameChange(value),
                       iconName: "assets/icons/person.png",
                       hintText: "Enter your username"),
                   AppSizing.h20,
                   const ReusableText(text: "Email"),
-                  const AppTextField(
-                      iconName: "assets/icons/person.png",
-                      hintText: "Enter your email address"),
+                  AppTextField(
+                    iconName: "assets/icons/person.png",
+                    hintText: "Enter your email address",
+                    onChanged: (value) => ref
+                        .read(registerNotifierProvider.notifier)
+                        .onEmailChange(value),
+                  ),
                   AppSizing.h20,
                   const ReusableText(text: "Password"),
-                  const AppTextField(
-                      iconName: "assets/icons/lock.png",
-                      hintText: "Enter your Password"),
+                  AppTextField(
+                    iconName: "assets/icons/lock.png",
+                    hintText: "Enter your Password",
+                    onChanged: (value) => ref
+                        .read(registerNotifierProvider.notifier)
+                        .onPasswordChange(value),
+                  ),
                   AppSizing.h20,
                   const ReusableText(text: "Confirm Password"),
-                  const AppTextField(
-                      iconName: "assets/icons/lock.png",
-                      hintText: "Enter your confirm password"),
+                  AppTextField(
+                    iconName: "assets/icons/lock.png",
+                    hintText: "Enter your confirm password",
+                    onChanged: (value) => ref
+                        .read(registerNotifierProvider.notifier)
+                        .onRePasswordChange(value),
+                  ),
                   AppSizing.h20,
                   const ReusableText(
                       textAlign: TextAlign.start,
-                      fontSizing: 14, 
+                      fontSizing: 14,
                       text:
                           "By creating an account you have to agree with our Term and Condition"),
                   AppSizing.h54,
                   AppButton(
-                    onTap: () {},
-                    buttonText: "Sign Up",
+                    onTap: () => register.handleSignUP(),
+                    buttonText: "Register",
                   )
                 ],
               ),

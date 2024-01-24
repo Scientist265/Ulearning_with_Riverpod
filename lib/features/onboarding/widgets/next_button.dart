@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ulearning_app/common/widget/app_shadow.dart';
 import 'package:ulearning_app/common/widget/text_widget.dart';
 import 'package:ulearning_app/config/routes.dart';
-import 'package:ulearning_app/constants/colors.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({
