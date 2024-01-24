@@ -3,7 +3,6 @@ import 'package:ulearning_app/common/widget/app_shadow.dart';
 import 'package:ulearning_app/common/widget/text_widget.dart';
 import 'package:ulearning_app/config/routes.dart';
 import 'package:ulearning_app/constants/colors.dart';
-import 'package:ulearning_app/features/auth/sign_in.dart';
 
 class NextButton extends StatelessWidget {
   const NextButton({

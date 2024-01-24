@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/constants/colors.dart';
 
 class ReusableText extends StatelessWidget {
@@ -23,8 +24,24 @@ class ReusableText extends StatelessWidget {
       style: TextStyle(
         fontWeight: weight ?? FontWeight.normal,
         fontSize: fontSizing ?? 16,
-        color: textColor ?? AppColors.primarySecondaryElementText,
+        color:
+            textColor ?? AppColors.primarySecondaryElementText.withOpacity(0.8),
       ),
     );
   }
+}
+
+Widget textUnderline({String text = ""}) {
+  return GestureDetector(
+    child: Text(
+      text,
+      style: TextStyle(
+        fontWeight: FontWeight.normal,
+        fontSize: 12.sp,
+        color: AppColors.primaryText,
+        decoration: TextDecoration.underline,
+        decorationColor: AppColors.primaryText,
+      ),
+    ),
+  );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/config/routes.dart';
+import 'package:ulearning_app/common/widget/app_styles.dart';
 
 void main() async {
   runApp(
@@ -20,7 +21,8 @@ class UlearningApp extends StatelessWidget {
       designSize: const Size(375, 825),
       builder: ((context, child) => MaterialApp(
             debugShowCheckedModeBanner: false,
-            initialRoute: welcome,
+            theme: AppTheme.appThemeData,
+            initialRoute: signIn,
             routes: routes,
           )),
     );
